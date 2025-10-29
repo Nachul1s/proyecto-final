@@ -9,6 +9,7 @@ import { Navbar } from './componentes/navbar/navbar';
 import { Ofertas } from './componentes/ofertas/ofertas';
 import { Ninos } from './componentes/ninos/ninos';
 import { Sombreros } from './componentes/sombreros/sombreros';
+import { Products } from './componentes/products/products';
 
 export const routes: Routes = [
     
@@ -20,6 +21,7 @@ export const routes: Routes = [
     {path: 'Navbar', component : Navbar},
     {path: 'Ofertas', component : Ofertas},
     {path: 'Niños', component : Ninos},
-    {path: 'Sombreros', component : Sombreros}
+    {path: 'Sombreros', component : Sombreros},
+      {path: 'Products', component : Products}
  
 ];
