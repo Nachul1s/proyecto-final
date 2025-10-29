@@ -26,7 +26,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootsrap.bundle.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
