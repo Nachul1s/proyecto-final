@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Nuevo Producto</h1>
+    <!--Insertamos directiva formGroup en etiqueta "form" para crear y vincular un 
+    formulario reactivo-->
+    <form [formGroup] = "nuevoProducto" (ngsubmit) = "crearTarjeta()">
+        <div class="mb-3">
+            <label for="titulo" class="form-label">Titulo</label>
+            <!--formControlName -> obtiene el vlor indivudual de cada dato integrado -->
+            <input id="titulo" class="form-control" type="text">
+        </div>
+         <div class="mb-3">
+            <label for="titulo" class="form-label">Descripcion</label>
+            <input id="descripcion" class="form-control" type="text">
+        </div>
+         <div class="mb-3">
+            
+            <label for="titulo" class="form-label">Precio</label>
+            <input id="precio" class="form-control" type="number">
+        </div>
+        <!--El boton se va a deshabilitar (disbled) cuando el formulario "nuevoProducto" o sea valido  (*|*). ej: faltan rellenar campos-->
+        <button type="submit" class="btn btn-primary w-100" [disabled]="nuevoProducto.valid">Agregar Producto</button>
+    </form>
+</div>

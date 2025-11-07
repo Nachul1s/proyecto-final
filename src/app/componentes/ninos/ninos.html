@@ -1,13 +1,38 @@
- <div class="container">
+<div class="container">
   <div class="row">
+    <!--aCA copie y pegue el mismo codigo porque las van  ir cambindo segun la repetitiva-->
     <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4 " *ngFor="let i of infoIndumentariaBoca">
-      <div class="card" >
+      <div class="card">
         <img class="card-img-top" src="{{i.img}}">
         <div class="card-body">
-          <h5 class="card-title">{{i.titulo}} </h5>
+          <h5 class="card-title">{{i.titulo}}</h5>
           <p class="card-text"> <strong>{{i.precio}} </strong></p>
-          <a href="#" class="btn btn-primary">Comprar</a>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verMas"
+            (click)="verMas(i)">
+            Ver mas
+          </button>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{ productoSeleccionado?.titulo}}</h1> <!--para que es el signo?=-->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button> <!--data-bs-dismiss es para cerrar el boto-->
+
       </div>
     </div>
   </div>

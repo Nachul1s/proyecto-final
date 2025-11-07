@@ -8,16 +8,25 @@ import { CommonModule } from '@angular/common';
   styleUrl: './ninos.css',
 })
 export class Ninos {
+  /*Propiedades en Angular -> variables
+  Propiedades Publicas: libre acceso a su contenido
+  Propiedad PRIVADA: Contenido restringido */
 public infoIndumentariaBoca: Indumentaria[];
+/*Instanciar  a la propiedad para poder hacer uso de ella
+Decñaramos la colleccion de Tarjetas en base a modelo de interfaz "Tarjetas"
+-se tiene que respetar el uso de todas las propiedades y su tipo   
+-Tipo Alfanumerico (string) inicializa en ""
+.Tipo Numerico (number) inicializa en 0
+*/
 constructor(){
 this.infoIndumentariaBoca = [
   {
     id:1,
-    titulo: "Campera de Boca",
+    titulo: "Campera de Boca", // tipo string, valor alfanumerico
     marca: "Adidas",
     descripcion: "Campéron de boca para utilizar en Invierno",
-    img: "https://th.bing.com/th/id/OIP.CEETs7SCCdDkfyPJRv3CJgHaJ3?w=160&h=213&c=7&r=0&o=7&pid=1.7&rm=3",
-    precio: 75,
+    img: "https://tse1.mm.bing.net/th/id/OIP._hzC7OMQxb3SYmZQBSQoMgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+    precio: 75, // tipo number, valor numerico
     alt:"Pantalon de Boca",
   
   },
@@ -58,4 +67,27 @@ this.infoIndumentariaBoca = [
     alt:"Medias de Boca",
   },
 ]
-}}
+//Variable para obtener los datos de un producto o una tarjeta seleccionada
+// any -> NO va a tener restriccion y admite cualquier tipo
+
+}
+productoSeleccionado: any = null;
+
+  /**f
+   *  @description Metodo para ver mas informacion de un producto
+   * recibe como parametro un producto de tipo "any" y lo asigna a la variable
+   * "productos seleccionados"
+   * 
+   */
+
+
+  /**
+   * 
+   *  @param producto
+  */
+  verMas(producto: any) {
+    this.productoSeleccionado = producto;
+  }
+}
+
+ 
