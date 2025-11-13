@@ -1,0 +1,31 @@
+/* Estilos para las imágenes dentro del modal */
+#verMas .imagenes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+#verMas .imagenes img {
+  max-width: 60px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover opcional para mejor interactividad */
+#verMas .imagenes img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 576px) {
+  #verMas .imagenes {
+    gap: 10px;
+  }
+  
+  #verMas .imagenes img {
+    max-width: 50px;
+  }
+}

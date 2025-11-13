@@ -2,19 +2,273 @@
     <h1>BIENVENIDO A DUCHITAS <STRONG>!</STRONG></h1>
  
 </div>
-<div class="container my-5">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+      <style>
+        .titulo {
+            text-align: center;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .titulo h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin: 0;
+        }
+        
+        .titulo strong {
+            color: #ffd700;
+        }
+        
+        .carousel-container {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .carousel-slides {
+            display: flex;
+            width: 300%;
+            height: 450px;
+            transition: transform 0.6s ease-in-out;
+        }
+        
+        .carousel-slide {
+            width: 33.333%;
+            flex-shrink: 0;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Ocultar inputs radio */
+        .carousel-radio {
+            display: none;
+        }
+        
+        /* Navegación con labels */
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .carousel-nav label {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        /* Controles de navegación - AHORA SIEMPRE VISIBLES */
+        .carousel-controls {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        
+        .carousel-control {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 1; /* SIEMPRE VISIBLE */
+            pointer-events: all;
+        }
+        
+        .carousel-control:hover {
+            background-color: white;
+            transform: scale(1.1);
+        }
+        
+        .carousel-control svg {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+        }
+        
+        /* Lógica del carrusel con CSS */
+        #slide1:checked ~ .carousel-slides {
+            transform: translateX(0%);
+        }
+        
+        #slide2:checked ~ .carousel-slides {
+            transform: translateX(-33.333%);
+        }
+        
+        #slide3:checked ~ .carousel-slides {
+            transform: translateX(-66.666%);
+        }
+        
+        /* Indicadores activos */
+        #slide1:checked ~ .carousel-nav label[for="slide1"],
+        #slide2:checked ~ .carousel-nav label[for="slide2"],
+        #slide3:checked ~ .carousel-nav label[for="slide3"] {
+            background-color: white;
+            transform: scale(1.2);
+        }
+        
+        /* Mostrar solo el control correcto para cada slide */
+        .carousel-controls > * {
+            display: none;
+        }
+        
+        /* CORREGIDO: Flecha IZQUIERDA va al slide ANTERIOR */
+        #slide1:checked ~ .carousel-controls .prev3,  /* Del slide 1 al 3 (circular) */
+        #slide2:checked ~ .carousel-controls .prev1,  /* Del slide 2 al 1 */
+        #slide3:checked ~ .carousel-controls .prev2,  /* Del slide 3 al 2 */
+        
+        /* CORREGIDO: Flecha DERECHA va al slide SIGUIENTE */
+        #slide1:checked ~ .carousel-controls .next2,  /* Del slide 1 al 2 */
+        #slide2:checked ~ .carousel-controls .next3,  /* Del slide 2 al 3 */
+        #slide3:checked ~ .carousel-controls .next1 { /* Del slide 3 al 1 (circular) */
+            display: flex;
+        }
+        
+        /* Secciones de productos */
+        .hombre, .mujeres, .boca {
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .hombre h2, .mujeres h2, .boca h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .carousel-slides {
+                height: 350px;
+            }
+            
+            .carousel-control {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .titulo h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+ 
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="carousel-container">
+                    <!-- Inputs radio para controlar el carrusel -->
+                    <input type="radio" name="carousel" id="slide1" class="carousel-radio" checked>
+                    <input type="radio" name="carousel" id="slide2" class="carousel-radio">
+                    <input type="radio" name="carousel" id="slide3" class="carousel-radio">
+                    
+                    <!-- Slides -->
+                    <div class="carousel-slides">
+                        <div class="carousel-slide">
+                            <img src="https://jumboargentina.vtexassets.com/arquivos/ids/660628/Remera-Hombre-Lisa-Escote-V-Negro-Urb-1-871901.jpg?v=637654365257930000" alt="Producto 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://http2.mlstatic.com/D_998004-MLA49214220163_022022-O.jpg" alt="Producto 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://resources.claroshop.com/medios-plazavip/s2/10996/1299349/5e1f8e4b9153d-c66d5821-5ebf-41da-9476-ec822471ab57-1600x1600.jpg" alt="Producto 3">
+                        </div>
+                    </div>
+                    
+                    <!-- Indicadores de navegación -->
+                    <div class="carousel-nav">
+                        <label for="slide1"></label>
+                        <label for="slide2"></label>
+                        <label for="slide3"></label>
+                    </div>
+                    
+                    <!-- Controles de navegación CORREGIDOS -->
+                    <div class="carousel-controls">
+                        <!-- FLECHA IZQUIERDA - navega al ANTERIOR -->
+                        <label for="slide3" class="carousel-control prev1">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </label>
+                        <label for="slide1" class="carousel-control prev2">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </label>
+                        <label for="slide2" class="carousel-control prev3">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </label>
+                        
+                        <!-- FLECHA DERECHA - navega al SIGUIENTE -->
+                        <label for="slide2" class="carousel-control next1">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                            </svg>
+                        </label>
+                        <label for="slide3" class="carousel-control next2">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                            </svg>
+                        </label>
+                        <label for="slide1" class="carousel-control next3">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                            </svg>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
-            <!-- Carousel -->
+            Carousel  
             <div id="compactCarousel" class="carousel slide" data-bs-ride="carousel">
-                <!-- Indicadores -->
+                  Indicadores  
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#compactCarousel" data-bs-slide-to="0" class="active"></button>
                     <button type="button" data-bs-target="#compactCarousel" data-bs-slide-to="1"></button>
                     <button type="button" data-bs-target="#compactCarousel" data-bs-slide-to="2"></button>
                 </div>
                 
-                <!-- Slides -->
+                 Slides  
                 <div class="carousel-inner rounded-3" style="max-height: 400px;">
                     <div class="carousel-item active">
                         <img src="https://jumboargentina.vtexassets.com/arquivos/ids/660628/Remera-Hombre-Lisa-Escote-V-Negro-Urb-1-871901.jpg?v=637654365257930000" class="d-block w-100 h-100" alt="Producto 1" style="object-fit: cover;">
@@ -27,7 +281,7 @@
                     </div>
                 </div>
                 
-                <!-- Controles -->
+                Controles -
                 <button class="carousel-control-prev" type="button" data-bs-target="#compactCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
                 </button>
@@ -37,7 +291,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <div class="hombre">
 <h2>PRODUCTOS PARA HOMBRE:</h2>
 <!--Aca con app llamo al componente hombres y asi sucesivamente con el resto-->

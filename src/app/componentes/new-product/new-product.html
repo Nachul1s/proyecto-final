@@ -1,23 +1,26 @@
 <div class="container">
-    <h1>Nuevo Producto</h1>
+    <h1>Contacto</h1>
     <!--Insertamos directiva formGroup en etiqueta "form" para crear y vincular un 
     formulario reactivo-->
-    <form [formGroup] = "nuevoProducto" (ngsubmit) = "crearTarjeta()">
+    <form [formGroup]="formularioMensaje" (ngSubmit)="crearMensaje()"> <!--el ngsubmit es el que llama la funcion -->
         <div class="mb-3">
-            <label for="titulo" class="form-label">Titulo</label>
+            <label for="titulo" class="form-label">ID</label>
             <!--formControlName -> obtiene el vlor indivudual de cada dato integrado -->
             <input id="titulo" class="form-control" type="text">
         </div>
-         <div class="mb-3">
-            <label for="titulo" class="form-label">Descripcion</label>
+        <div class="mb-3">
+            <label for="titulo" class="form-label">Mail</label>
             <input id="descripcion" class="form-control" type="text">
         </div>
-         <div class="mb-3">
-            
-            <label for="titulo" class="form-label">Precio</label>
+        <div class="mb-3">
+
+            <label for="titulo" class="form-label">Telefono</label>
             <input id="precio" class="form-control" type="number">
         </div>
-        <!--El boton se va a deshabilitar (disbled) cuando el formulario "nuevoProducto" o sea valido  (*|*). ej: faltan rellenar campos-->
-        <button type="submit" class="btn btn-primary w-100" [disabled]="nuevoProducto.valid">Agregar Producto</button>
+        <!--El boton se va a deshabilitar (disbled) cuando el formulario "formularioTarjeta" o sea valido  (*|*). ej: faltan rellenar campos-->
+        <button type="submit" class="btn btn-primary w-100" [disabled]="!formularioMensaje.valid">Enviar</button>
     </form>
-</div>
+    <ul class="list-group" *ngFor="let tarjeta of coleccionMensaje">
+        <li class="list-group-item"> </li>
+    </ul>
+</div> 

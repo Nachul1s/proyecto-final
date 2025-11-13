@@ -1,29 +1,140 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="Inicio"><img src="duchitass.png" alt="" width="60px" height="75px"> </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 0.3rem 0.5rem;
+            background-color: white !important;
+            min-height: 60px;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            padding: 0;
+        }
+        
+        .navbar-brand img {
+            transition: transform 0.2s ease;
+            height: 45px;
+            width: auto;
+        }
+        
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            padding: 8px 12px !important;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            color: var(--primary-color) !important;
+            font-size: 0.95rem;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--secondary-color) !important;
+        }
+        
+        .nav-link.active {
+            color: var(--secondary-color) !important;
+            font-weight: 600;
+        }
+        
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            padding: 6px 0;
+            margin-top: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .dropdown-item {
+            padding: 6px 16px;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-item:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--secondary-color);
+        }
+        
+        .navbar-toggler {
+            border: none;
+            padding: 4px 8px;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                margin-top: 8px;
+            }
+            
+            .nav-link {
+                padding: 6px 10px !important;
+            }
+        }
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="Products"> Productos </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="Contacto">Contacto</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+        /* Contenido de ejemplo para mostrar el espacio */
+        .content {
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+ 
+ 
+    <!-- Barra de Navegación Compacta -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="Inicio">
+                <!-- Imagen del logo con tamaño optimizado -->
+                <img src="duchitass.png" alt="Duchitass" width="45" height="45">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="Inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorías
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Hombres">Hombres</a>
+                            <a class="dropdown-item" href="Mujeres">Mujeres</a>
+                            <a class="dropdown-item" href="Niños">Boca</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="Ofertas">Ofertas Especiales</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </li>
-       
-    </ul>
-  </div>
-</nav>
+    </nav>
+ 
+
+    <!-- Bootstrap JS -->
+ 

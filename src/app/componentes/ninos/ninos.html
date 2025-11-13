@@ -6,7 +6,7 @@
         <img class="card-img-top" src="{{i.img}}">
         <div class="card-body">
           <h5 class="card-title">{{i.titulo}}</h5>
-          <p class="card-text"> <strong>{{i.precio}} </strong></p>
+          <p class="card-text"> <strong>${{i.precio}} </strong></p>
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verMas"
             (click)="verMas(i)">
@@ -20,15 +20,24 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="verMas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header"><!-- interpolacion es mostrar un dato del ts en el html que es donde estan las doble llve -->
         <h1 class="modal-title fs-5" id="exampleModalLabel">{{ productoSeleccionado?.titulo}}</h1> <!--para que es el signo?=-->
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        12 Cuotas Sin Interes <br>
+        Metodos de pago:
+
+        <div class="imagenes">
+          <img src="https://images.seeklogo.com/logo-png/14/1/visa-logo-png_seeklogo-149684.png" alt="Visa">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/1200px-MasterCard_Logo.svg.png" alt="MasterCard_Logo">
+          <img src="https://images.seeklogo.com/logo-png/31/1/tarjeta-naranja-logo-png_seeklogo-312154.png" alt="Naranja">       
+       
+       
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button> <!--data-bs-dismiss es para cerrar el boto-->

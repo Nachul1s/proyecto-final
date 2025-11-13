@@ -10,18 +10,23 @@ import { Ofertas } from './componentes/ofertas/ofertas';
 import { Ninos } from './componentes/ninos/ninos';
 import { Sombreros } from './componentes/sombreros/sombreros';
 import { Products } from './componentes/products/products';
+import { About } from './componentes/about/about';
+import { NewProduct } from './componentes/new-product/new-product';
 
 export const routes: Routes = [
     
     {path: '', component : Inicio},
     {path: 'Inicio', component : Inicio},
-    {path: 'Contacto', component: Contacto },
+    {path: 'Contacto', component: NewProduct },
     {path: 'Hombres', component : Hombres},
     {path: 'Mujeres', component : Mujeres},
     {path: 'Navbar', component : Navbar},
     {path: 'Ofertas', component : Ofertas},
     {path: 'Niños', component : Ninos},
     {path: 'Sombreros', component : Sombreros},
-      {path: 'Products', component : Products}
+      {path: 'Products', component : Products},
+      {path: 'About', component : About},
+         {path: 'Ofertas', component : Ofertas},
+      
  
 ];

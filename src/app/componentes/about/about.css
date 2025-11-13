@@ -1,0 +1,84 @@
+    *{
+        background-color: whitesmoke;
+    }
+    .about-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.7;
+        color: #333;
+    }
+    
+    .hero-section {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border-left: 4px solid #e84393;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #2d3436;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        color: #666;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        margin: 2rem 0 1rem 0;
+        color: #2d3436;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #e84393;
+    }
+    
+    .team-grid {
+        display: grid;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .team-member {
+        padding: 1.5rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        border-left: 3px solid #a29bfe;
+    }
+    
+    .member-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+        color: #2d3436;
+    }
+    
+    .member-role {
+        color: purple;
+        font-style: italic;
+        margin-bottom: 1rem;
+    }
+    
+    .member-bio {
+        color: #555;
+        line-height: 1.6;
+    }
+    
+    .content-section {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .content-section p {
+        margin-bottom: 1rem;
+        text-align: justify;
+    }

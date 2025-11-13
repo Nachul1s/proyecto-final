@@ -1,3 +1,202 @@
+<style>
+    .carousel-container {
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .carousel-slides {
+        display: flex;
+        width: 300%;
+        height: 300px;
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .carousel-slide {
+        width: 33.333%;
+        flex-shrink: 0;
+    }
+    
+    .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    /* Ocultar inputs radio */
+    .carousel-radio {
+        display: none;
+    }
+    
+    /* Navegación con labels */
+    .carousel-nav {
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        z-index: 10;
+    }
+    
+    .carousel-nav label {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    /* Controles de navegación */
+    .carousel-controls {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+        z-index: 5;
+        pointer-events: none;
+    }
+    
+    .carousel-control {
+        background-color: rgba(255, 255, 255, 0.9);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        opacity: 1;
+        pointer-events: all;
+    }
+    
+    .carousel-control:hover {
+        background-color: white;
+        transform: scale(1.05);
+    }
+    
+    .carousel-control svg {
+        width: 20px;
+        height: 20px;
+        fill: #333;
+    }
+    
+    /* Lógica del carrusel con CSS */
+    #slide1:checked ~ .carousel-slides {
+        transform: translateX(0%);
+    }
+    
+    #slide2:checked ~ .carousel-slides {
+        transform: translateX(-33.333%);
+    }
+    
+    #slide3:checked ~ .carousel-slides {
+        transform: translateX(-66.666%);
+    }
+    
+    /* Indicadores activos */
+    #slide1:checked ~ .carousel-nav label[for="slide1"],
+    #slide2:checked ~ .carousel-nav label[for="slide2"],
+    #slide3:checked ~ .carousel-nav label[for="slide3"] {
+        background-color: white;
+        transform: scale(1.2);
+    }
+    
+    /* Mostrar solo el control correcto para cada slide */
+    .carousel-controls > * {
+        display: none;
+    }
+    
+    /* Flecha IZQUIERDA va al slide ANTERIOR */
+    #slide1:checked ~ .carousel-controls .prev3,
+    #slide2:checked ~ .carousel-controls .prev1,
+    #slide3:checked ~ .carousel-controls .prev2,
+    
+    /* Flecha DERECHA va al slide SIGUIENTE */
+    #slide1:checked ~ .carousel-controls .next2,
+    #slide2:checked ~ .carousel-controls .next3,
+    #slide3:checked ~ .carousel-controls .next1 {
+        display: flex;
+    }
+</style>
+
+<div class="carousel-container">
+    <!-- Inputs radio para controlar el carrusel -->
+    <input type="radio" name="carousel" id="slide1" class="carousel-radio" checked>
+    <input type="radio" name="carousel" id="slide2" class="carousel-radio">
+    <input type="radio" name="carousel" id="slide3" class="carousel-radio">
+    
+    <!-- Slides -->
+    <div class="carousel-slides">
+        <div class="carousel-slide">
+            <img src="https://d368r8jqz0fwvm.cloudfront.net/1489-product_lg/remera-de-mujer-ayalen.jpg" alt="Pantalon">
+        </div>
+        <div class="carousel-slide">
+            <img src="https://i1.wp.com/lauraazana.es/blog/wp-content/uploads/2021/08/la20200na-2-1.jpg?resize=738%2C460&ssl=1" alt="Reloj inteligente">
+        </div>
+        <div class="carousel-slide">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.sDbIUPPophNUXwus8WCdDAHaJQ?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Auriculares">
+        </div>
+    </div>
+    
+    <!-- Indicadores de navegación -->
+    <div class="carousel-nav">
+        <label for="slide1"></label>
+        <label for="slide2"></label>
+        <label for="slide3"></label>
+    </div>
+    
+    <!-- Controles de navegación -->
+    <div class="carousel-controls">
+        <!-- FLECHA IZQUIERDA - navega al ANTERIOR -->
+        <label for="slide3" class="carousel-control prev1">
+            <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+        </label>
+        <label for="slide1" class="carousel-control prev2">
+            <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+        </label>
+        <label for="slide2" class="carousel-control prev3">
+            <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+        </label>
+        
+        <!-- FLECHA DERECHA - navega al SIGUIENTE -->
+        <label for="slide2" class="carousel-control next1">
+            <svg viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+        </label>
+        <label for="slide3" class="carousel-control next2">
+            <svg viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+        </label>
+        <label for="slide1" class="carousel-control next3">
+            <svg viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+        </label>
+    </div>
+</div>
+
 <div class="container">
   <div class="row">
     <!--aCA copie y pegue el mismo codigo porque las van  ir cambindo segun la repetitiva-->
@@ -6,7 +205,7 @@
         <img class="card-img-top" src="{{i.img}}">
         <div class="card-body">
           <h5 class="card-title">{{i.titulo}} </h5>
-          <p class="card-text"> <strong>{{i.precio}} </strong></p>
+          <p class="card-text"> <strong>${{i.precio}} </strong></p> 
           <a href="#" class="btn btn-primary">Comprar</a>
         </div>
       </div>
